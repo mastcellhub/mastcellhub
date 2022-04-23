@@ -13,7 +13,8 @@ export const navStyle = style({
   display: 'flex',
   width: '100%',
   justifyContent: 'space-between',
-  alignItems: 'center'
+  alignItems: 'center',
+  padding: '0.5rem 0'
 })
 
 export const navLinkStyle = style([

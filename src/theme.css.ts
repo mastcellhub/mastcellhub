@@ -7,6 +7,9 @@ export const vars = createGlobalTheme(':root', {
     text: {
       default: "#3C5C73",
       secondary: "#66879F"
+    },
+    background: {
+      mint: "#E8FEFA"
     }
   },
   font: {
