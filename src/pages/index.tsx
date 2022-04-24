@@ -1,9 +1,14 @@
 import * as React from "react"
+import {useEffect} from "react"
 import {indexPageStyle, pageHeroStyle} from '../styles.css'
 import Header from '../components/Header'
+import {getUsers} from '../utils/users'
 // import ComingSoon from '../components/ComingSoon'
 
 const IndexPage = () => {
+  useEffect(() => {
+    getUsers()
+  }, [])
   return (
     <main className={indexPageStyle}>
       <title>Mast Cell Hub - Home</title>

@@ -16,3 +16,42 @@ export const pageHeroStyle = style({
   margin: '1rem 0',
   backgroundColor: vars.color.background.mint,
 })
+
+export const articleGridStyle = style({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+  gridGap: '1rem',
+  fontSize: '0.8rem'
+})
+
+export const articleGridTitle = style({
+  color: vars.color.primary,
+  lineClamp: 1,
+  marginBottom: '0.2rem'
+})
+
+export const articleGridDescription = style({
+  display: '-webkit-box',
+  margin: '0.5rem 0',
+  WebkitBoxOrient: 'vertical',
+  WebkitLineClamp: 5,
+  overflow: 'hidden',
+})
+
+export const collectionTitle = style({
+  marginBottom: '0.5rem',
+  color: vars.color.primary,
+  fontSize: '2rem',
+})
+
+export const articleLink = style({
+  color: vars.color.primary,
+  textDecoration: 'none',
+  ':hover': {
+    textDecoration: 'underline',
+  },
+})
+
+export const artlcePublisherStyle = style({
+  color: vars.color.text.secondary
+})

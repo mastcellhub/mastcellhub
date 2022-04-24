@@ -10,7 +10,7 @@ const DoctorsPage = () => {
       <Header />
       <div className={pageHeroStyle}>
         <h1>Doctors</h1>
-        <p>Weekly hand-picked sets of beneficial articles about Mastocytosis and Mast Cell Activation Syndrome</p>
+        <p>Community-sourced interactive map of doctors and professionals who can help you manage your health</p>
       </div>
       <ComingSoon />
     </main>
