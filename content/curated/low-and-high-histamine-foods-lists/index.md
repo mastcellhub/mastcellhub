@@ -1,6 +1,6 @@
 ---
 id: article-d97kTjAsF
-title: Low and High Histamine Foods Lists
+title: MCD Nutrition
 tags:
   - mcas
   - mastocytosis
