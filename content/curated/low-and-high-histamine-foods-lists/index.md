@@ -1,6 +1,6 @@
 ---
 id: article-d97kTjAsF
-title: MCD Nutrition
+title: Mast Cell Disease Nutrition
 tags:
   - mcas
   - mastocytosis
