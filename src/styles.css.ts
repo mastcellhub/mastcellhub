@@ -21,7 +21,6 @@ export const articleGridStyle = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
   gridGap: '1rem',
-  fontSize: '0.8rem'
 })
 
 export const articleGridTitle = style({
@@ -54,4 +53,19 @@ export const articleLink = style({
 
 export const artlcePublisherStyle = style({
   color: vars.color.text.secondary
+})
+
+export const articleTagGroup = style({
+  margin: '0.25rem 0'
+})
+
+export const articleTag = style({
+  fontSize: '0.8rem',
+  backgroundColor: vars.color.secondary,
+  marginRight: '0.25rem',
+  padding: '0.2rem',
+  borderRadius: '0.25rem',
+  color: vars.color.text.green,
+  fontWeight: '600',
+  textDecoration: 'none'
 })

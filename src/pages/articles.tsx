@@ -7,41 +7,41 @@ import {
   articleGridTitle,
   articleGridDescription,
   artlcePublisherStyle,
-  collectionTitle,
   articleLink,
+  articleTag,
+  articleTagGroup
 } from '../styles.css'
 import {DataProps} from '../types'
 import Header from '../components/Header'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 const ArticlesPage = ({data}: PageProps<DataProps>) => {
-  const collections = data.allMarkdownRemark.nodes
+  const posts = data.allMarkdownRemark.nodes
   return (
     <main className={indexPageStyle}>
       <title>Mast Cell Hub - Curated Artcles</title>
       <Header />
       <div className={pageHeroStyle}>
         <h1>Curated Articles</h1>
-        <p>Monthly hand-picked sets of beneficial articles about Mastocytosis and Mast Cell Activation Syndrome</p>
+        <p>Frequently updated hand-picked articles about Mastocytosis and Mast Cell Activation Syndrome</p>
       </div>
-        {collections.map(({frontmatter, fields}) => 
-          <div key={frontmatter.title}>
-            <h2 className={collectionTitle} >
+      <div className={articleGridStyle}>
+        {posts.map(({frontmatter, excerpt, fields}) => {
+          const {title, id, publication, tags, batch} = frontmatter
+          return (
+            <div key={id} data-batch={batch} data-tags={tags}>
+              <h3 className={articleGridTitle}>{title}</h3>
+              <div className={artlcePublisherStyle}>By: {publication}</div>
+              <div className={articleTagGroup}>{tags?.map((tag: string) => <a href={`#${tag}`} className={articleTag}>{tag}</a>)}</div>
+              <p className={articleGridDescription}>{excerpt}</p>
               <Link className={articleLink} to={`/articles${fields.slug}`}>
-                {frontmatter.title}
+                Read and comment <FontAwesomeIcon icon={faArrowRight}  size="xs" />
               </Link>
-            </h2>
-            <div className={articleGridStyle}>
-              {frontmatter.articles.map(({title, publication, description, link}) => 
-                <div key={link}>
-                  <h3 className={articleGridTitle}>{title}</h3>
-                  <span className={artlcePublisherStyle}>By: {publication}</span>
-                  <p className={articleGridDescription}>{description}</p>
-                  <a className={articleLink} href={link} target="_blank">Read full article</a>
-                </div>
-              )}
             </div>
-          </div>
+          )}
         )}
+        </div>
     </main>
   )
 }
@@ -57,18 +57,18 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
+        excerpt
         fields {
           slug
         }
         frontmatter {
           title
           date(formatString: "MMMM DD, YYYY")
-          articles {
-            title
-            description
-            publication
-            link
-          }
+          batch
+          publication
+          link
+          id
+          tags
         }
       }
     }

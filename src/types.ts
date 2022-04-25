@@ -2,18 +2,18 @@ export type DataProps = {
   allMarkdownRemark: {
     nodes: {
       frontmatter: {
-        date?: string
+        date?: Date
         title?: string
-        articles: {
-          title?: string
-          description?: string
-          link?: string
-          publication?: string
-        }[]
+        id: string
+        publication: string
+        link: string
+        tags?: string[]
+        batch?: string
       },
       fields: {
         slug: string
       }
+      excerpt: string
      }[]
   }
 }
@@ -36,15 +36,15 @@ export type CuratedProps = {
     }
   },
   markdownRemark: {
+    html: string
+    excerpt?: string
     frontmatter: {
       date?: string
       title?: string
-      articles: {
-        title?: string
-        description?: string
-        link?: string
-        publication?: string
-      }[]
-      }
+      link?: string
+      publication?: string
+      id?: string
+      tags?: string[]
     }
+  }
 }

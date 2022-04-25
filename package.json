@@ -17,6 +17,10 @@
   },
   "dependencies": {
     "@fontsource/lato": "^4.5.3",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "@vanilla-extract/babel-plugin": "^1.1.5",
     "@vanilla-extract/css": "^1.6.8",
     "@vanilla-extract/webpack-plugin": "^2.1.6",

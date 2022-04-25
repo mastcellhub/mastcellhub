@@ -17,6 +17,28 @@ collections:
     editor:
       preview: false
     fields:
+      - {
+          label: "ID",
+          name: "id",
+          widget: "ncw-id",
+          prefix: "article",        # will generate post-124hfkjas
+          timestamp: false,     # will generate 1245119112-post-124hfkjas
+      }
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { 
+          label: "Tags",
+          name: "tags",
+          widget: "list",
+          default: ["mcas"]
+        }
+      - {
+          label: "Publication",
+          name: "publication",
+          widget: "select",
+          multiple: false,
+          options: ["The Mast Cell Disease Society", "Pubmed", "mastcell360", "other"],
+          default: ["The Mast Cell Disease Society"]
+        }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      # - { label: 'Articles', name: 'articles', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Link', name: 'link', widget: 'string' }

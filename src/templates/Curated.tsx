@@ -1,32 +1,34 @@
 import * as React from "react"
 import { Link, graphql, PageProps } from "gatsby"
 import Layout from '../components/Layout'
+import {curatedPostStyle} from './styles.css'
 import {CuratedProps} from '../types'
 
 const CuratedTemplate = ({ data }: PageProps<CuratedProps>) => {
-  const post = data.markdownRemark
   const { previous, next } = data
+  const post = data.markdownRemark
+  const {title, date, link, publication, id, tags} = post.frontmatter
 
   return (
     <Layout>
       <article
-        className="blog-post"
+        className={curatedPostStyle}
         itemScope
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1>{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <h1>{title}</h1>
+          <p>{date}</p>
         </header>
         <hr />
         <div>
-          {post.frontmatter.articles.map(article => (
-            <div>
-                <h3>{article.title}</h3>
-                <p>{article.description}</p>
-                <a href={article.link}>Read full</a>
-            </div>
-          ))}
+          <h3>{title}</h3>
+          <span>From: {publication}</span>
+          <section
+            dangerouslySetInnerHTML={{ __html: post.html }}
+            itemProp="articleBody"
+          />
+          <a href={link}>Read original</a>
         </div>
       </article>
       <nav className="blog-post-nav">
@@ -74,15 +76,14 @@ export const pageQuery = graphql`
     } 
     markdownRemark(id: { eq: $id }) {
       id
+      html
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        articles {
-          title
-          description
-          link
-          publication
-        }
+        id
+        link
+        publication
+        tags
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

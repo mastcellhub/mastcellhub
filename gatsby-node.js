@@ -100,7 +100,10 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type Frontmatter {
       title: String
-      description: String
+      tags: [String]
+      publication: String
+      link: String
+      id: String
       date: Date @dateformat
     }
     type Fields {
